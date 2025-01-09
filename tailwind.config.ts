@@ -9,19 +9,20 @@ export default {
   theme: {
     extend: {
       colors: {
-          "background-primary": "#050505",
-          "background-secondary": "#0F0F10",
-          "background-tertiary": "#19191A",
-          "content-body": "#CDCBCC",
-          "content-placeholder": "#827D7F",
-          "content-headline": "#B2B2B2",
-          "border-primary": "#19191A",
-          "border-secondary": "#323234",
-          "border-tertiary": "#979798",
-          "accent-purple": "#4B2DBB",
-          "accent-green": "#87BB2D",
-          "accent-pink": "#B5446B"
-      },
+        "background-primary": "#FFFFFF", // Branco para o fundo principal
+        "background-secondary": "#F5F7FA", // Azul bem claro para o fundo secundário
+        "background-tertiary": "#E3E9F0", // Azul suave para o fundo terciário
+        "content-body": "#2C3E50", // Azul escuro para o texto
+        "content-placeholder": "#7F8C8D", // Azul acinzentado para placeholders
+        "content-headline": "#34495E", // Azul médio para manchetes
+        "border-primary": "#D6DBE1", // Azul claro para bordas principais
+        "border-secondary": "#AAB3BE", // Azul acinzentado para bordas secundárias
+        "border-tertiary": "#718093", // Azul mais escuro para bordas terciárias
+        "accent-blue": "#2980B9", // Azul vibrante para destaque
+        "accent-light-blue": "#3498DB", // Azul claro para destaque
+        "accent-orange": "#E67E22" // Laranja para destaque
+    },
+    
     },
   },
   plugins: [],

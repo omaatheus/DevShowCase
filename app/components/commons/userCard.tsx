@@ -8,7 +8,7 @@ export default function UserCard(){
     ]
 
     return (
-        <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white">
+        <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#E3E9F0] rounded-3xl text-black">
             <div className="size-48">
                 <img 
                 src="https://github.com/omaatheus.png" 
@@ -26,7 +26,7 @@ export default function UserCard(){
                 <div className="flex gap-3">
                     {
                         icones.map((Icon, i) => (
-                            <button key={i} className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"><Icon />  </button>
+                            <button key={i} className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]"><Icon />  </button>
                         ))
                     }
                 </div>
@@ -37,7 +37,7 @@ export default function UserCard(){
                         <Button className="w-full">
                             Compre Agora
                         </Button>
-                        <button className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]">
+                        <button className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
                             <Plus />
                         </button>
                     </div>

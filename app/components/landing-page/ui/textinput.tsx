@@ -10,8 +10,8 @@ export default function TextInput(
         `
             w-full
             p-3
-            bg-background-secondary
-            text-white
+            bg-background-tertiary
+            text-black
             placeholder:text-content-placeholder
             rounded-xl
             border border-transparent 

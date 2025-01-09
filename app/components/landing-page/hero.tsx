@@ -8,13 +8,13 @@ export default function Hero(){
     return(
         <div className="flex h-screen">
             <div className="w-full flex flex-col gap-2 mt-[35vh]">
-                <h1 className="text-5xl font-bold text-white leading-[64px]">Seus projetos e redes sociais em um único link.</h1>
+                <h1 className="text-5xl font-bold text-black leading-[64px]">Seus projetos e redes sociais em um único link.</h1>
                 <h2 className="text-xl leading-6">Crie sua própria página de projetos e compartilhe eles com o mundo.
                     <br />
                     Acompanhe o engajamento com Analytics de cliques.
                 </h2>
                 <div className="flex items-center gap-2 w-full mt-[10vh]">
-                    <span className="text-white text-xl">devshowcase.com/</span>
+                    <span className="text-black text-xl">devshowcase.com/</span>
                     <TextInput placeholder="Seu link" />
                     <Button>
                         Criar Agora

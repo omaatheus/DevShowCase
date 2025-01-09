@@ -6,7 +6,7 @@ export default function TextArea(props: React.TextareaHTMLAttributes<HTMLTextAre
             w-full 
             p-3 
             bg-background-secondary 
-            text-white 
+            text-black 
             placeholder:text-content-placeholder 
             rounded-xl 
             border
