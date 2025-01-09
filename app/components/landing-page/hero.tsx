@@ -1,3 +1,4 @@
+import ProjectCard from "../commons/projectCard"
 import { TotalVisits } from "../commons/totalVisits"
 import UserCard from "../commons/userCard"
 import Button from "./ui/button"
@@ -29,10 +30,10 @@ export default function Hero(){
 
                     </div>
                     <div className="absolute top-[20%] -left-[45%] -z-10">
-                        {/*<ProjectCard />*/}
+                        <ProjectCard />
                     </div>
                     <div className="absolute -top-[5%] -left-[55%] -z-10">
-                        {/*<ProjectCard />*/}
+                        <ProjectCard />
                     </div>
                 </div>
             </div>
