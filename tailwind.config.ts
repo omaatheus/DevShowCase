@@ -20,7 +20,8 @@ export default {
         "border-tertiary": "#718093", // Azul mais escuro para bordas terciárias
         "accent-blue": "#2980B9", // Azul vibrante para destaque
         "accent-light-blue": "#3498DB", // Azul claro para destaque
-        "accent-orange": "#E67E22" // Laranja para destaque
+        "accent-orange": "#E67E22", // Laranja para destaque
+        "accent-red": "#FF0000"
     },
     
     },

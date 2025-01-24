@@ -33,7 +33,7 @@ const faqItems = [
 export default function FAQ() {
   return (
     <div className="my-20 flex flex-col items-center gap-16">
-      <h3 className="text-4xl font-bold text-[#7e038a]">Dúvidas frequentes</h3>
+      <h3 className="text-4xl font-bold text-[#4200cd]">Dúvidas frequentes</h3>
       <div className="flex gap-3">
         <div className="flex flex-col gap-3">
           {faqItems.slice(0, Math.ceil(faqItems.length / 2)).map((item) => (
