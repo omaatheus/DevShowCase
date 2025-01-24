@@ -9,7 +9,7 @@ export default function ProjectCard() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <span className="uppercase text-xs font-bold text-accent-green">
+          <span className="uppercase text-xs font-bold text-[#4200cd]">
             10 cliques
           </span>
           <div className="flex flex-col">
