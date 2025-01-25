@@ -101,7 +101,7 @@ export default function NewProject({ profileId }: { profileId: string }) {
                 )}
               </div>
               <button
-                className="text-white flex items-center gap-2"
+                className="text-black flex items-center gap-2"
                 onClick={() => triggerImageInput("imageInput")}
               >
                 <ArrowUpFromLine className="size-4" />
@@ -159,7 +159,7 @@ export default function NewProject({ profileId }: { profileId: string }) {
           <div className="flex gap-4 justify-end">
           <button
               onClick={() => setIsOpen(false)}
-              className="font-bold text-white"
+              className="font-bold text-black"
             >
               Voltar
             </button>
