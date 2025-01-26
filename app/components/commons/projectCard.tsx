@@ -1,49 +1,58 @@
 "use client";
 
-import Link from "next/link";
 
-
+import { formatUrl } from "@/app/lib/utils";
 import { ProjectData } from "@/app/server/get-profile-data";
+import { log } from "console";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function ProjectCard({
   project,
   isOwner,
   img,
+  name,
+  description,
 }: {
-  project: ProjectData;
-  isOwner: boolean;
+  project?: ProjectData;
+  isOwner?: boolean;
   img: string;
+  name?: string;
+  description?: string;
 }) {
-  const projectUrl = project.projectUrl;
-  const formattedUrl = projectUrl.startsWith("http")
-    ? projectUrl
-    : `https://${projectUrl}`;
+  const { profileId } = useParams();
+  const formattedUrl = formatUrl(project?.projectUrl || "");
 
-  function handleClick() {
-    console.log("clicked"); // TODO: implementar analytics
-  }
+  // async function handleClick() {
+  //   if (!profileId || !project?.id || isOwner) return;
 
-    return (
-      <Link href={formattedUrl} target="_blank" onClick={handleClick}>
+  //   await increaseProjectVisits(profileId as string, project?.id);
+  // }
+
+  return (
+    <Link href={formattedUrl} target="_blank" onClick={() => (console.log("oi")
+    )}>
       <div className="w-[340px] h-[132px] flex gap-5 bg-background-secondary p-3 rounded-[20px] border border-transparent hover:border-border-secondary">
         <div className="size-24 rounded-md overflow-hidden flex-shrink-0">
-          <img src={img} alt="Projeto" className="w-full h-full object-cover" />
+          <img src={img} alt="Link" className="w-full h-full object-cover" />
         </div>
         <div className="flex flex-col gap-2">
           {isOwner && (
             <span className="uppercase text-xs font-bold text-accent-green">
-              {project.totalVisits || 0} cliques
+              {project?.totalVisits || 0} cliques
             </span>
           )}
 
           <div className="flex flex-col">
-            <span className="text-white font-bold">{project.projectName}</span>
+            <span className="text-black font-bold">
+              {name || project?.projectName}
+            </span>
             <span className="text-content-body text-sm">
-              {project.projectDescription}
+              {description || project?.projectDescription}
             </span>
           </div>
         </div>
       </div>
-      </Link>
-    );
-  }
+    </Link>
+  );
+}
