@@ -38,22 +38,22 @@ export default async function UserCard({profileData, isOwner }: {profileData?: P
                 <span className="uppercase text-xs font-medium">Links</span>
                 <div className="flex gap-3">
                     {
-                        profileData?.socialMedias.github && <Link href={profileData?.socialMedias.github} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
+                        profileData?.socialMedias?.github && <Link href={profileData?.socialMedias.github} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
                         <Github />
                         </Link>
                     }
                     {
-                        profileData?.socialMedias.instagram && <Link href={profileData?.socialMedias.instagram} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
+                        profileData?.socialMedias?.instagram && <Link href={profileData?.socialMedias.instagram} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
                         <Instagram />
                         </Link>
                     }
                     {
-                        profileData?.socialMedias.twitter && <Link href={profileData?.socialMedias.twitter} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
+                        profileData?.socialMedias?.twitter && <Link href={profileData?.socialMedias.twitter} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
                         <Twitter />
                         </Link>
                     }
                     {
-                        profileData?.socialMedias.linkedin && <Link href={profileData.socialMedias.linkedin} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
+                        profileData?.socialMedias?.linkedin && <Link href={profileData.socialMedias.linkedin} target="_blank" className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]">
                         <Linkedin />
                         </Link>
                     }

@@ -35,14 +35,17 @@ export type ProjectData = {
 };
 
 export async function getProfileData(profileId: string) {
-  const snapshot = await db.collection("profiles").doc(profileId).get();
+  const snapshot = await db
+  .collection("profiles")
+  .doc(profileId)
+  .get();
 
   return snapshot.data() as ProfileData;
 }
 
 export async function getProfileProjects(profileId: string) {
   const snapshot = await db
-    .collection("projects")
+    .collection("profiles")
     .doc(profileId)
     .collection("projects")
     .get();
