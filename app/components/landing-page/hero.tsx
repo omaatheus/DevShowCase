@@ -31,6 +31,7 @@ export default function Hero(){
                     </div>
                     <div className="absolute top-[20%] -left-[45%] -z-10">
                     <ProjectCard
+                    isOwner={false}
               name="Link Sobre um avanço tecnologico"
               description="Descrição detalhada"
               img="/project1.png"
@@ -38,6 +39,7 @@ export default function Hero(){
                     </div>
                     <div className="absolute -top-[5%] -left-[55%] -z-10">
                     <ProjectCard
+                    isOwner={false}
               name="Link sobre uma pesquisa científica"
               description="Descrição detalhada"
               img="/project2.png"

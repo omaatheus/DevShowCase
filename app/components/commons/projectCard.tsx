@@ -1,6 +1,7 @@
 "use client";
 
 
+import { increaseProjectVisits } from "@/app/actions/increase-project-visits";
 import { formatUrl } from "@/app/lib/utils";
 import { ProjectData } from "@/app/server/get-profile-data";
 import { log } from "console";
@@ -12,33 +13,32 @@ export default function ProjectCard({
   isOwner,
   img,
   name,
-  description,
+  description
 }: {
   project?: ProjectData;
-  isOwner?: boolean;
+  isOwner: boolean;
   img: string;
   name?: string;
-  description?: string;
+  description?: string
 }) {
   const { profileId } = useParams();
   const formattedUrl = formatUrl(project?.projectUrl || "");
 
-  // async function handleClick() {
-  //   if (!profileId || !project?.id || isOwner) return;
+  async function handleClick() {
+    if (!profileId || !project?.id || isOwner) return;
 
-  //   await increaseProjectVisits(profileId as string, project?.id);
-  // }
+    await increaseProjectVisits(profileId as string, project.id);
+  }
 
   return (
-    <Link href={formattedUrl} target="_blank" onClick={() => (console.log("oi")
-    )}>
+    <Link href={formattedUrl} target="_blank" onClick={handleClick}>
       <div className="w-[340px] h-[132px] flex gap-5 bg-background-secondary p-3 rounded-[20px] border border-transparent hover:border-border-secondary">
         <div className="size-24 rounded-md overflow-hidden flex-shrink-0">
           <img src={img} alt="Link" className="w-full h-full object-cover" />
         </div>
         <div className="flex flex-col gap-2">
           {isOwner && (
-            <span className="uppercase text-xs font-bold text-accent-green">
+            <span className="uppercase text-xs font-bold text-[#5000b9]">
               {project?.totalVisits || 0} cliques
             </span>
           )}

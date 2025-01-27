@@ -53,7 +53,7 @@ export default function AddCustomLink() {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="p-3 rounded-xl bg-[#ebeaea] hover:bg-[#bdbdbd]"
+        className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#F5F7FA]"
       >
         <Plus />
       </button>

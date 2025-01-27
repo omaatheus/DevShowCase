@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import NewProject from "./new-project";
 import { getProfileData, getProfileProjects } from "@/app/server/get-profile-data";
 import { getDownloadURLFromPath } from "@/app/lib/firebase";
+import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 
 
 export default async function ProfilePage({
@@ -26,6 +27,10 @@ export default async function ProfilePage({
   const session = await auth();
 
   const isOwner = profileData.userId === session?.user?.id;
+
+  if (!isOwner) {
+    await increaseProfileVisits(profileId);
+  }
 
   // TODO: Adicionar page view
 
@@ -55,7 +60,11 @@ export default async function ProfilePage({
         {isOwner && <NewProject profileId={profileId} />}
       </div>
       <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
-        <TotalVisits />
+      {isOwner && (
+        <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
+          <TotalVisits totalVisits={profileData.totalVisits} />
+        </div>
+      )}
       </div>
     </div>
   );

@@ -8,13 +8,10 @@ import AddCustomLink from "./add-custom-link"
 import { getDownloadURLFromPath } from "@/app/lib/firebase"
 import EditUserCard from "./edit-user-card"
 
-export default async function UserCard({profileData, isOwner }: {profileData?: ProfileData; isOwner: boolean}){
+export default async function UserCard({profileData, isOwner }: {profileData?: ProfileData; isOwner?: boolean}){
 
-
-  console.log(profileData);
-  
     const icones = [
-        Github, Linkedin, Twitter, Instagram
+        Github, Linkedin, Twitter, Instagram, Plus
     ]
 
     return (
@@ -58,11 +55,11 @@ export default async function UserCard({profileData, isOwner }: {profileData?: P
                         </Link>
                     }
 
-                    {/* {
-                        icones.map((Icon, i) => (
+                    {
+                       !profileData && icones.map((Icon, i) => (
                             <button key={i} className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]"><Icon />  </button>
                         ))
-                    } */}
+                    }
                      {isOwner && (
             <EditSocialLinks socialMedias={profileData?.socialMedias} />
           )}
