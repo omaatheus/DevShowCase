@@ -2,6 +2,7 @@ import ProjectCard from "../commons/projectCard"
 import { TotalVisits } from "../commons/totalVisits"
 import UserCard from "../commons/user-card/userCard"
 import Button from "./ui/button"
+import CreateNow from "./ui/create-now"
 import TextInput from "./ui/textinput"
 
 export default function Hero(){
@@ -14,11 +15,7 @@ export default function Hero(){
                     Acompanhe o engajamento com Analytics de cliques.
                 </h2>
                 <div className="flex items-center gap-2 w-full mt-[10vh]">
-                    <span className="text-black text-xl">devshowcase.com/</span>
-                    <TextInput placeholder="Seu link" />
-                    <Button>
-                        Criar Agora
-                    </Button>
+                    <CreateNow />
                 </div>
             </div>
             <div className="w-full flex items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)]">
