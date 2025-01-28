@@ -2,7 +2,7 @@
 
 
 import useOnClickOutside from "@/app/hooks/useOnClickOuside";
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 
 export default function Modal({
   children,
@@ -15,7 +15,7 @@ export default function Modal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(ref, () => {
+  useOnClickOutside(ref as RefObject<HTMLDivElement>, () => {
     setIsOpen(false);
   });
 
