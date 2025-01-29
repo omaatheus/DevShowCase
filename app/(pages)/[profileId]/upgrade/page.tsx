@@ -1,6 +1,14 @@
 import Header from "@/app/components/landing-page/header";
 import Button from "@/app/components/landing-page/ui/button";
 import PlanButtons from "./plan-buttons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "LinkShowCase - Upgrade",
+  description: "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."
+}
+
+
 
 export default async function UpgradePage() {
   return (

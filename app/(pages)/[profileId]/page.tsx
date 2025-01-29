@@ -8,6 +8,12 @@ import NewProject from "./new-project";
 import { getProfileData, getProfileProjects } from "@/app/server/get-profile-data";
 import { getDownloadURLFromPath } from "@/app/lib/firebase";
 import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "LinkShowCase - Perfil",
+  description: "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."
+}
 
 
 export default async function ProfilePage({

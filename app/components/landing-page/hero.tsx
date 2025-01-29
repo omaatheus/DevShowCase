@@ -5,14 +5,21 @@ import Button from "./ui/button"
 import CreateNow from "./ui/create-now"
 import TextInput from "./ui/textinput"
 
-export default function Hero(){
+export default function Hero({
+    texts,
+  }: {
+    texts?: {
+      title: string;
+      description: string;
+    };
+  }) {
     return(
         <div className="flex h-screen">
             <div className="w-full flex flex-col gap-2 mt-[35vh]">
-                <h1 className="text-5xl font-bold text-black leading-[64px]">Seus projetos e redes sociais em um único link.</h1>
-                <h2 className="text-xl leading-6">Crie sua própria página de projetos e compartilhe eles com o mundo.
+                <h1 className="text-5xl font-bold text-black leading-[64px]">{texts?.title || "Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."}</h1>
+                <h2 className="text-xl leading-6"> {texts?.description || "Crie sua própria página de projetos e compartilhe eles com o mundo."}
                     <br />
-                    Acompanhe o engajamento com Analytics de cliques.
+                    Acompanhe o engajamento com Analytics.
                 </h2>
                 <div className="flex items-center gap-2 w-full mt-[10vh]">
                     <CreateNow />

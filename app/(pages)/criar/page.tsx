@@ -1,8 +1,22 @@
 import Header from "@/app/components/landing-page/header";
 import { Rocket } from "lucide-react";
 import CreateLinkForm from "./create-link-form";
+import { trackServerEvent } from "@/app/lib/mixpanel";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "LinkShowCase - Criar",
+  description: "LinkShowCase - Crie seu link compartilhável com o público."
+}
+
+
 
 export default function CriarPage() {
+
+  trackServerEvent("page_view", {
+    page: "home"
+  })
+
   return (
     <div>
       <Header />
