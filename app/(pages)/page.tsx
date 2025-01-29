@@ -5,7 +5,12 @@ import Hero from "../components/landing-page/hero";
 import Pricing from "../components/landing-page/pricing";
 import VideoExplanation from "../components/landing-page/videoExplanation";
 
+
+
+
+
 export default function Home() {
+
   return (
     <div className="max-w-7xl mx-auto">
       <Header />

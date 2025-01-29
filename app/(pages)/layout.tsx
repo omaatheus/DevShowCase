@@ -1,4 +1,5 @@
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { Red_Hat_Display } from "next/font/google";
 
@@ -7,11 +8,16 @@ const redHatDisplay = Red_Hat_Display({
   weight: ["400", "500", "700"],
 });
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const gaId: any = process.env.GAID
+
   return (
     <html lang="pt-br">
       <body
@@ -20,6 +26,7 @@ export default function RootLayout({
           {children}
         </div>
       </body>
+      <GoogleAnalytics gaId={gaId} />
     </html>
   );
 }
