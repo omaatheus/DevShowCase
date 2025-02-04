@@ -25,7 +25,7 @@ export default function Pricing() {
             <span className="text-black font-bold text-[48px]">R$9,90</span>
             <span className="text-content-headline text-2xl">/mês</span>
           </div>
-          <Button variant="primary">Assinar</Button>
+          
         </div>
         <div className="flex flex-col w-full max-w-[304px]">
           <div className="flex justify-center items-center rounded-t-2xl p-2 bg-[linear-gradient(90deg,#5000b9_0%,#7e038a_100%)]">
@@ -42,7 +42,7 @@ export default function Pricing() {
                   R$59,90
                 </span>
               </div>
-              <Button variant="primary">Assinar</Button>
+              
             </div>
           </div>
         </div>
