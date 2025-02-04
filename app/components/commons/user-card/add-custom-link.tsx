@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import { Edit, Plus } from "lucide-react";
 
 import { startTransition, useState } from "react";
 
@@ -49,16 +49,18 @@ export default function AddCustomLink() {
     });
   };
 
+  const hasCustomLinks = link1 || link2 || link3;
+
   return (
     <>
       <button
         onClick={() => setIsModalOpen(true)}
         className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#F5F7FA]"
       >
-        <Plus />
+        {hasCustomLinks ? <Edit /> : <Plus />}
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[514px]">
+        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[350px] sm:w-[90vw] md:w-[375px]">
           <p className="text-black font-bold text-xl">
             Adicionar links personalizados
           </p>

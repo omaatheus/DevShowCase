@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   description: "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."
 }
 
-
 export default async function ProfilePage({
   params,
 }: {
@@ -37,45 +36,35 @@ export default async function ProfilePage({
     await increaseProfileVisits(profileId);
   }
 
-  if (isOwner && !session?.user.isSubscribed && !session?.user.isTrial) {
-    // redirect(`/${profileId}/upgrade`);
-    
-    
-  }
-
   return (
-    <div className="relative h-screen flex p-20 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col md:flex-row p-4 pb-20 md:p-20 overflow-auto">
       {session?.user.isTrial && !session?.user.isSubscribed && (
-        <div className="fixed top-0 left-0 w-full flex justify-center items-center gap-1 py-2 bg-background-tertiary">
+        <div className="fixed top-0 left-0 w-full flex justify-center items-center gap-1 py-2 bg-background-tertiary text-sm md:text-base">
           <span>Você está usando a versão trial.</span>
           <Link href={`/${profileId}/upgrade`}>
-            <button className="text-[#5000b9] font-bold">
-              Faça o upgrade agora!
-            </button>
+            <button className="text-[#5000b9] font-bold">Faça o upgrade agora!</button>
           </Link>
         </div>
       )} 
-      <div className="w-1/2 flex justify-center h-min">
+      <div className="w-full md:w-1/3 flex justify-center h-min mb-6 md:mb-0 mt-6">
         <UserCard isOwner={true} profileData={profileData} />
       </div>
-      <div className="w-full flex justify-center content-start gap-4 flex-wrap overflow-y-auto">
-      {projects.map(async (project) => (
+      <div className="w-full md:w-2/3 flex flex-wrap justify-center content-start gap-6 overflow-visible">
+        {projects.map(async (project) => (
           <ProjectCard
             key={project.id}
             project={project}
             isOwner={isOwner}
-            img={(await getDownloadURLFromPath(project.imagePath) || "") }
+            img={(await getDownloadURLFromPath(project.imagePath) || "")}
           />
         ))}
         {isOwner && <NewProject profileId={profileId} />}
       </div>
-      <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
       {isOwner && (
-        <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
+        <div className="absolute bottom-4 right-0 left-0 w-min mx-auto mt-100">
           <TotalVisits totalVisits={profileData.totalVisits} showBar />
         </div>
       )}
-      </div>
     </div>
   );
 }

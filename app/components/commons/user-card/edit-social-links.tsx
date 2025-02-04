@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Instagram, Linkedin, Plus, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Plus, Twitter, Edit } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
 import Modal from "../../landing-page/ui/modal";
@@ -8,16 +8,15 @@ import TextInput from "../../landing-page/ui/textinput";
 import Button from "../../landing-page/ui/button";
 import createSocialLinks from "@/app/actions/create-social-links";
 
-
 export default function EditSocialLinks({
-    socialMedias,
+  socialMedias,
 }: {
-    socialMedias?: {
-            github?: string,
-            instagram?: string,
-            linkedin?: string,
-            twitter?: string,
-    }
+  socialMedias?: {
+    github?: string;
+    instagram?: string;
+    linkedin?: string;
+    twitter?: string;
+  };
 }) {
   const router = useRouter();
 
@@ -51,18 +50,21 @@ export default function EditSocialLinks({
     });
   }
 
+  const hasSocialLinks =
+    github || instagram || linkedin || twitter;
+
   return (
     <>
       <button
         onClick={() => setIsModalOpen(true)}
         className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#F5F7FA]"
       >
-        <Plus />
+        {hasSocialLinks ? <Edit /> : <Plus />}
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[514px]">
+      <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[350px] sm:w-[90vw] md:w-[375px]">
           <p className="text-black font-bold text-xl">
-            Adicionar redes sociais
+            {hasSocialLinks ? "Editar redes sociais" : "Adicionar redes sociais"}
           </p>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2 w-full">

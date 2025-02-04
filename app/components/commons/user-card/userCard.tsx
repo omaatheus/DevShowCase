@@ -7,8 +7,17 @@ import { formatUrl } from "@/app/lib/utils"
 import AddCustomLink from "./add-custom-link"
 import { getDownloadURLFromPath } from "@/app/lib/firebase"
 import EditUserCard from "./edit-user-card"
+import { auth } from "@/app/lib/auth"
 
 export default async function UserCard({profileData, isOwner }: {profileData?: ProfileData; isOwner?: boolean}){
+
+
+    const session = await auth();
+    
+      const isSessionOn = profileData?.userId === session?.user?.id;
+
+      console.log("IS SESSION ON: ", isSessionOn);
+      
 
     const icones = [
         Github, Linkedin, Twitter, Instagram, Plus
@@ -27,7 +36,7 @@ export default async function UserCard({profileData, isOwner }: {profileData?: P
             <div className="flex flex-col gap-2 w-full ">
                 <div className="flex items-center gap-2">
                     <h3 className="text-3xl font-bold min-w-0 overflow-hidden" >{profileData?.name || "Matheus Silva"}</h3>
-                    {isOwner && <EditUserCard profileData={profileData} />}
+                    {isOwner && isSessionOn && <EditUserCard profileData={profileData} />}
                 </div>
                 <p className="opacity-40"> {profileData?.description || "Eu faço produtos para a Internet"}</p>
             </div>
@@ -60,7 +69,7 @@ export default async function UserCard({profileData, isOwner }: {profileData?: P
                             <button key={i} className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#FFFFFF]"><Icon />  </button>
                         ))
                     }
-                     {isOwner && (
+                     {isOwner && isSessionOn && (
             <EditSocialLinks socialMedias={profileData?.socialMedias} />
           )}
                 </div>
@@ -95,7 +104,7 @@ export default async function UserCard({profileData, isOwner }: {profileData?: P
   </Link>
 )}
         </div>
-        {isOwner && <AddCustomLink />}
+        {isOwner && isSessionOn && <AddCustomLink />}
     </div>
     )
 }

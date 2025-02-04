@@ -68,10 +68,10 @@ export default function EditUserCard({
         <UserPen />
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={() => setIsModalOpen(false)}>
-        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10">
+        <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 max-w-full sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px] mx-auto">
           <p className="text-black font-bold text-xl">Editar perfil</p>
-          <div className="flex gap-10">
-            <div className="flex flex-col items-center gap-3 text-xs">
+          <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex flex-col items-center gap-3 text-xs md:w-1/3">
               <div className="w-[100px] h-[100px] rounded-xl bg-background-tertiary overflow-hidden">
                 {profilePic ? (
                   <img
@@ -103,7 +103,7 @@ export default function EditUserCard({
                 onChange={(e) => setProfilePic(handleImageInput(e))}
               />
             </div>
-            <div className="flex flex-col gap-4 w-[293px]">
+            <div className="flex flex-col gap-4 w-full md:w-2/3">
               <div className="flex flex-col gap-1">
                 <label htmlFor="your-name" className="text-black  font-bold">
                   Seu nome
@@ -133,7 +133,7 @@ export default function EditUserCard({
             </div>
           </div>
           <div className="flex gap-4 justify-end">
-            <button className="font-bold text-black">Voltar</button>
+            <button className="font-bold text-black" onClick={() => setIsModalOpen(false)}>Voltar</button>
             <Button onClick={handleSaveProfile} disabled={isSavingProfile}>
               Salvar
             </Button>

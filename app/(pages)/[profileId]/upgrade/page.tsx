@@ -9,15 +9,16 @@ export const metadata: Metadata = {
 }
 
 
-
 export default async function UpgradePage() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center gap-4">
+    <>
       <Header />
+      <div className="min-h-screen pb-20 p-6 flex flex-col items-center justify-center gap-4 pt-[0px]">
       <h2 className="text-2xl font-bold">Escolha o plano</h2>
       <div className="flex gap-4">
         <PlanButtons />
       </div>
     </div>
+    </>
   );
 }

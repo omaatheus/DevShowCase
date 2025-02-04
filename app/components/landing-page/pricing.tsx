@@ -5,7 +5,7 @@ export default function Pricing() {
   return (
     <div className="my-[150px] flex flex-col items-center gap-14 px-4">
       <div className="flex flex-col items-center gap-6 text-center">
-        <h3 className="text-4xl font-bold text-black">
+        <h3 className="text-4xl font-bold text-black mt-100">
           Um valor acessível para todos
         </h3>
         <p className="text-content-body text-xl">
