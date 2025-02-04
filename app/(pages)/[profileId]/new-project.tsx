@@ -68,7 +68,7 @@ export default function NewProject({ profileId }: { profileId: string }) {
         <span>Novo Link</span>
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10">
+      <div className="bg-background-primary w-[400px] h-[600px] p-8 rounded-[20px] flex flex-col justify-between gap-10">
           <p className="text-black font-bold text-xl">Novo Link</p>
           <div className="flex gap-10">
             <div className="flex flex-col items-center gap-3 text-xs">

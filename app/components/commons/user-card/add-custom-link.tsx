@@ -49,7 +49,10 @@ export default function AddCustomLink() {
     });
   };
 
-  const hasCustomLinks = link1 || link2 || link3;
+  const hasCustomLinks = link1.url || link2.url || link3.url;
+
+  console.log("has custom links: ", hasCustomLinks);
+  
 
   return (
     <>
@@ -57,7 +60,7 @@ export default function AddCustomLink() {
         onClick={() => setIsModalOpen(true)}
         className="p-3 rounded-xl bg-[#F5F7FA] hover:bg-[#F5F7FA]"
       >
-        {hasCustomLinks ? <Edit /> : <Plus />}
+        {hasCustomLinks ? <Edit/> : <Plus />}
       </button>
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
         <div className="bg-background-primary p-8 rounded-[20px] flex flex-col justify-between gap-10 w-[350px] sm:w-[90vw] md:w-[375px]">
