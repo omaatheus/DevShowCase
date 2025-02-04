@@ -28,14 +28,14 @@ export default async function UserCard({profileData, isOwner }: {profileData?: P
             <div className="size-48">
                 <img 
                 src={
-                  (await getDownloadURLFromPath(profileData?.imagePath)) || "https://www.github.com/omaatheus.png"
+                  (await getDownloadURLFromPath(profileData?.imagePath)) || "/profile.png"
                 }
                 alt="" 
                 className="rounded-full object-cover w-full h-full" />
             </div>
             <div className="flex flex-col gap-2 w-full ">
                 <div className="flex items-center gap-2">
-                    <h3 className="text-3xl font-bold min-w-0 overflow-hidden" >{profileData?.name || "Matheus Silva"}</h3>
+                    <h3 className="text-3xl font-bold min-w-0 overflow-hidden" >{profileData?.name || "Jonh Doe"}</h3>
                     {isOwner && isSessionOn && <EditUserCard profileData={profileData} />}
                 </div>
                 <p className="opacity-40"> {profileData?.description || "Eu faço produtos para a Internet"}</p>
