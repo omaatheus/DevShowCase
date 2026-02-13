@@ -1,33 +1,54 @@
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, LogOut } from "lucide-react";
 import { manageAuth } from "@/app/actions/manage-auth";
 import { auth } from "@/app/lib/auth";
 import PortalButton from "./portal-buttons";
 
 export async function TotalVisits({
-    totalVisits = 0,
-    showBar = false,
-  }: {
-    totalVisits?: number;
-    showBar?: boolean;
-  }) {
+  totalVisits = 0,
+  showBar = false,
+}: {
+  totalVisits?: number;
+  showBar?: boolean;
+}) {
+  const session = await auth();
 
-    const session = await auth();
+  return (
+    <div className="w-min whitespace-nowrap flex items-center gap-5 bg-background-primary/80 backdrop-blur-md border border-border-secondary px-5 py-3 rounded-full shadow-xl hover:shadow-2xl hover:border-accent-purple/20 transition-all duration-300">
+      
+      {/* SEÇÃO 1: Label e Ícone (O ponto focal) */}
+      <div className="flex items-center gap-3">
+        {/* Ícone com fundo decorativo */}
+        <div className="p-2 bg-accent-purple/10 rounded-full text-accent-purple">
+            <TrendingUp color="#4200cd" size={20} />
+        </div>
+        
+        {/* Texto e Número empilhados para melhor leitura */}
+        <div className="flex flex-col leading-tight">
+            <span className="text-xs font-bold uppercase text-content-body/50 tracking-wide">
+                Visitas Totais
+            </span>
+            <span className="text-xl font-bold text-content-heading">
+                {totalVisits}
+            </span>
+        </div>
+      </div>
 
-    return(
-        <div className="w-min whitespace-nowrap flex items-center gap-5 bg-background-secondary border border-border-primary px-8 py-3 rounded-xl shadow-lg">
-            <span className="font-bold text-black">Total de visitas</span>
-            <div className="flex items-center gap-2 text-[#4200cd]">
-            <span className="text-3xl font-bold">{totalVisits}</span>
-                <TrendingUp />
-            </div>
-            {showBar && (
-        <div className="flex items-center gap-2">
+      {/* SEÇÃO 2: Ações (Renderização Condicional) */}
+      {showBar && (
+        <div className="flex items-center gap-4 pl-5 border-l border-border-secondary/50">
+          
+          {/* Botão do Portal (Se inscrito) */}
           {session?.user.isSubscribed && <PortalButton />}
+          
+          {/* Botão de Sair */}
           <form action={manageAuth}>
-            <button>Sair</button>
+            <button className="flex items-center gap-2 text-sm font-medium text-content-body hover:text-red-500 transition-colors group">
+                <span className="hidden md:inline">Sair</span>
+                <LogOut size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
           </form>
         </div>
       )}
-        </div>
-    )
+    </div>
+  );
 }
