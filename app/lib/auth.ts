@@ -14,7 +14,7 @@ declare module "next-auth" {
   }
 
   interface User {
-    createdAt: number;
+    createdAt?: number;
     isTrial?: boolean;
     isSubscribed?: boolean;
   }
@@ -35,16 +35,18 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     },
   },
   callbacks: {
-    session({ session, user }) {
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          isTrial:
-            new Date(user.createdAt).getTime() >
-              new Date().getTime() - 1000 * 60 * 60 * 24 * TRIAL_DAYS || false,
-        },
-      };
-    },
+  session({ session, user }) {
+    const createdAt = user.createdAt ?? 0;
+    return {
+      ...session,
+      user: {
+        ...session.user,
+        createdAt,
+        isTrial:
+          createdAt >
+            Date.now() - 1000 * 60 * 60 * 24 * TRIAL_DAYS,
+      },
+    };
   },
+},
 });
