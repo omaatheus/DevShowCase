@@ -75,9 +75,16 @@ export default async function ProfilePage({
       {/* MAIN CONTENT */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col lg:flex-row gap-10 lg:gap-20">
         {/* COLUNA PERFIL */}
-        <div className="w-full lg:w-[30%] flex flex-col items-center lg:items-start">
-          <div className="lg:sticky lg:top-24 w-full flex justify-center lg:justify-start">
+        <div className="w-full lg:w-[30%] flex justify-center lg:justify-start">
+          <div className="lg:sticky lg:top-24 flex flex-col items-center gap-6">
             <UserCard isOwner={isOwner} profileData={profileData} />
+
+            {isOwner && (
+              <TotalVisits
+                totalVisits={profileData.totalVisits}
+                showBar={true}
+              />
+            )}
           </div>
         </div>
 
@@ -123,11 +130,6 @@ export default async function ProfilePage({
       </main>
 
       {/* FOOTER FLUTUANTE SIMPLIFICADO */}
-      {isOwner && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40">
-          <TotalVisits totalVisits={profileData.totalVisits} showBar={true} />
-        </div>
-      )}
     </div>
   );
 }
