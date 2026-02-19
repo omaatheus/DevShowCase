@@ -101,7 +101,7 @@ export default function NewProject({ profileId }: { profileId: string }) {
     <>
       <button
         onClick={handleOpenModal}
-        className="group w-[340px] h-[132px] rounded-2xl bg-background-secondary border border-transparent hover:border-border-secondary transition-all duration-300 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md cursor-pointer"
+        className="group w-full max-w-[600px] h-[132px] rounded-2xl bg-background-secondary border border-transparent hover:border-border-secondary transition-all duration-300 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md cursor-pointer"
       >
         <div className="p-3 rounded-full bg-background-tertiary group-hover:bg-accent-green/10 transition-colors">
             <Plus className="size-8 text-accent-green" />

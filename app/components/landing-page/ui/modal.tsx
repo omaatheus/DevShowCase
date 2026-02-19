@@ -1,8 +1,8 @@
 "use client";
 
-
 import useOnClickOutside from "@/app/hooks/useOnClickOuside";
-import { RefObject, useRef } from "react";
+import { RefObject, useRef, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function Modal({
   children,
@@ -14,16 +14,21 @@ export default function Modal({
   setIsOpen: (isOpen: boolean) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useOnClickOutside(ref as RefObject<HTMLDivElement>, () => {
     setIsOpen(false);
   });
 
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 bg-[#787878]/10 flex items-center justify-center backdrop-blur-md z-50">
+  if (!isOpen || !mounted) return null;
+  return createPortal(
+    <div className="fixed inset-0 bg-[#787878]/10 flex items-center justify-center backdrop-blur-md z-[9999]">
       <div ref={ref}>{children}</div>
-    </div>
+    </div>,
+    document.body
   );
 }

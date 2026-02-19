@@ -24,13 +24,26 @@ export default async function UserCard({
   console.log(profileImageUrl);
 
   // Função auxiliar para renderizar botões sociais
-  const SocialButton = ({ href, Icon }: { href: string; Icon: any }) => (
+  const SocialButton = ({ 
+    href, 
+    Icon, 
+    label, 
+    hoverColorClass 
+  }: { 
+    href: string; 
+    Icon: any; 
+    label: string;
+    hoverColorClass: string;
+  }) => (
     <Link
       href={href}
       target="_blank"
-      className="p-3 rounded-xl bg-white hover:bg-[#F0F2F5] text-gray-700 hover:text-black transition-all shadow-sm hover:shadow border border-transparent hover:border-gray-200"
+      rel="noopener noreferrer"
+      aria-label={`Visitar perfil no ${label}`}
+      title={label}
+      className={`p-3 rounded-2xl bg-white text-gray-600 shadow-sm border border-gray-100 transition-all duration-300 flex items-center justify-center hover:-translate-y-1 hover:shadow-md hover:bg-white ${hoverColorClass}`}
     >
-      <Icon size={20} />
+      <Icon size={22} strokeWidth={1.5} />
     </Link>
   );
 
@@ -76,33 +89,64 @@ export default async function UserCard({
       </div>
 
       {/* Links Sociais */}
-      <div className="flex flex-col gap-3 w-full items-center">
-        <span className="uppercase text-[10px] font-bold text-gray-400 tracking-widest">
-          Social
-        </span>
-        <div className="flex gap-2 flex-wrap justify-center">
+      <div className="flex flex-col gap-4 w-full items-center mt-2 mb-2">
+        {/* Divisor Visual para o Label */}
+        <div className="flex items-center gap-3 w-full max-w-[200px]">
+          <div className="h-[1px] bg-gray-300/50 flex-1 rounded-full"></div>
+          <span className="uppercase text-[10px] font-bold text-gray-400 tracking-widest">
+            Social
+          </span>
+          <div className="h-[1px] bg-gray-300/50 flex-1 rounded-full"></div>
+        </div>
+
+        <div className="flex gap-3 flex-wrap justify-center items-center">
           {profileData?.socialMedias?.github && (
-            <SocialButton href={profileData.socialMedias.github} Icon={Github} />
+            <SocialButton 
+              href={profileData.socialMedias.github} 
+              Icon={Github} 
+              label="GitHub"
+              hoverColorClass="hover:text-black hover:border-black/20"
+            />
           )}
           {profileData?.socialMedias?.instagram && (
-            <SocialButton href={profileData.socialMedias.instagram} Icon={Instagram} />
+            <SocialButton 
+              href={profileData.socialMedias.instagram} 
+              Icon={Instagram} 
+              label="Instagram"
+              hoverColorClass="hover:text-pink-600 hover:border-pink-200"
+            />
           )}
           {profileData?.socialMedias?.twitter && (
-            <SocialButton href={profileData.socialMedias.twitter} Icon={Twitter} />
+            <SocialButton 
+              href={profileData.socialMedias.twitter} 
+              Icon={Twitter} 
+              label="Twitter"
+              hoverColorClass="hover:text-sky-500 hover:border-sky-200"
+            />
           )}
           {profileData?.socialMedias?.linkedin && (
-            <SocialButton href={profileData.socialMedias.linkedin} Icon={Linkedin} />
+            <SocialButton 
+              href={profileData.socialMedias.linkedin} 
+              Icon={Linkedin} 
+              label="LinkedIn"
+              hoverColorClass="hover:text-blue-600 hover:border-blue-200"
+            />
           )}
           
-          {/* Fallback visual quando não há dados */}
-          {!profileData &&
+          {/* Fallback visual aprimorado quando não há dados */}
+          {!profileData?.socialMedias &&
             icones.slice(0, 3).map((Icon, i) => (
-              <div key={i} className="p-3 rounded-xl bg-white/50 opacity-50">
-                <Icon size={20} />
+              <div key={i} className="p-3 rounded-2xl bg-white/40 text-gray-400 border border-transparent">
+                <Icon size={22} strokeWidth={1.5} />
               </div>
             ))}
 
-          {canEdit && <EditSocialLinks socialMedias={profileData?.socialMedias} />}
+          {/* Botão de Edição com a mesma animação base */}
+          {canEdit && (
+            <div className="transition-transform duration-300 hover:-translate-y-1">
+              <EditSocialLinks socialMedias={profileData?.socialMedias} />
+            </div>
+          )}
         </div>
       </div>
 
