@@ -8,6 +8,9 @@ import VideoExplanation from "../components/landing-page/videoExplanation";
 import { trackServerEvent } from "../lib/mixpanel";
 import { Metadata } from "next";
 import { getSEOTags } from "../lib/seo";
+import UserCard from "../components/commons/user-card/userCard";
+import { TotalVisits } from "../components/commons/totalVisits";
+import ProjectCard from "../components/commons/projectCard";
 
 export const metadata: Metadata = getSEOTags({
   appName: "LinkShowCase",
@@ -27,7 +30,18 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto">
       <Header />
-      <Hero />
+      <Hero 
+      userCard={<UserCard />}
+      totalVisits={<TotalVisits totalVisits={3470} />}
+      projectCards={
+        <ProjectCard
+          isOwner={false}
+          name="Avanço tecnológico"
+          description="Descrição detalhada"
+          img="/project1.png"
+        />
+      }
+      />
       {/* <VideoExplanation /> */}
       <Pricing/>
       <FAQ />

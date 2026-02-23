@@ -3,6 +3,7 @@
 import Button from "@/app/components/landing-page/ui/button";
 import { useStripe } from "@/app/hooks/useStripe";
 import { useParams } from "next/navigation";
+import { MONTHLY_PRICE, ANUALLY_PRICE } from "@/app/lib/config";
 
 export default function PlanButtons() {
   const { profileId } = useParams();
@@ -19,7 +20,7 @@ export default function PlanButtons() {
             <span className="text-content-body">Apenas</span>
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-black font-bold text-[48px]">R$6,90</span>
+            <span className="text-black font-bold text-[48px]">R${MONTHLY_PRICE}</span>
             <span className="text-content-headline text-xl">/mês</span>
           </div>
         </div>
@@ -51,7 +52,7 @@ export default function PlanButtons() {
                 <span className="text-content-body">Pagamento único</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-black font-bold text-[48px]">R$49,90</span>
+                <span className="text-black font-bold text-[48px]">R${ANUALLY_PRICE}</span>
               </div>
             </div>
             

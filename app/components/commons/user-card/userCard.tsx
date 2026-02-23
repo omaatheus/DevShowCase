@@ -23,7 +23,6 @@ export default async function UserCard({
 
   console.log(profileImageUrl);
 
-  // Função auxiliar para renderizar botões sociais
   const SocialButton = ({ 
     href, 
     Icon, 
@@ -58,7 +57,6 @@ export default async function UserCard({
         </div>
       )}
 
-      {/* Background Decorativo sutil */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/30 to-transparent pointer-events-none" />
 
       {/* Foto de Perfil */}
@@ -79,9 +77,8 @@ export default async function UserCard({
       <div className="flex flex-col gap-3 w-full text-center z-10 relative">
         <div className="flex items-center justify-center gap-2 relative">
           <h3 className="text-3xl font-bold text-gray-900 tracking-tight min-w-0">
-            {profileData?.name || "John Doe"}
+            {profileData?.name || "Matheus Silva"}
           </h3>
-          {/* O botão de edição foi removido daqui */}
         </div>
         <p className="text-gray-600 font-medium leading-relaxed">
           {profileData?.description || "Eu faço produtos para a Internet"}
