@@ -55,28 +55,30 @@ export default async function ProfilePage({
         <div className="absolute top-40 -left-20 w-72 h-72 bg-accent-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      {/* BANNER TRIAL */}
-      {session?.user.isTrial && !session?.user.isSubscribed && (
-        <div className="sticky top-0 z-50 w-full bg-background-tertiary/80 backdrop-blur-md border-b border-border-secondary">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex justify-center items-center gap-4 text-sm md:text-base">
-            <span className="text-content-body flex items-center gap-2">
-              <Sparkles className="size-4 text-yellow-500 fill-yellow-500" />
-              Você está usando a versão trial
-            </span>
-            <Link href={`/${profileId}/upgrade`}>
-              <button className="bg-accent-purple hover:bg-accent-purple/90 text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1">
-                Upgrade agora <ArrowRight size={12} />
-              </button>
-            </Link>
-          </div>
-        </div>
-      )}
-
       {/* MAIN CONTENT */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col lg:flex-row gap-10 lg:gap-20">
-        {/* COLUNA PERFIL */}
+      {/* COLUNA PERFIL */}
         <div className="w-full lg:w-[30%] flex justify-center lg:justify-start">
-          <div className="lg:sticky lg:top-24 flex flex-col items-center gap-6">
+          <div className="lg:sticky lg:top-24 flex flex-col items-center gap-4 w-full max-w-[320px]">
+            
+            {session?.user.isTrial && !session?.user.isSubscribed && (
+              <Link href={`/${profileId}/upgrade`} className="w-full group">
+                <div className="w-full bg-purple-50 border border-[#4200cd] shadow-sm rounded-3xl p-4 flex flex-col items-center gap-2 transition-all duration-300 hover:shadow-md hover:border-purple-300 hover:-translate-y-0.5">
+                  
+                  <span className="text-[#4200cd] text-sm font-semibold flex items-center gap-2">
+                    <Sparkles className="size-4 text-[#4200cd] animate-pulse" />
+                    Modo trial ativo
+                  </span>
+                  
+                  <span className="text-[#4200cd] text-xs font-bold flex items-center justify-center gap-1 transition-colors duration-300">
+                    Fazer Upgrade 
+                    <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+
+                </div>
+              </Link>
+            )}
+
             <UserCard isOwner={isOwner} profileData={profileData} />
 
             {isOwner && (
