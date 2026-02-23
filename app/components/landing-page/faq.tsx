@@ -12,7 +12,7 @@ const faqItems = [
   {
     title: "A plataforma oferece algum teste gratuito?",
     description:
-      "Sim! Você pode experimentar o LinkShowCase gratuitamente por 3 dias. Durante esse período, terá acesso a todas as funcionalidades para decidir se deseja continuar com a assinatura.",
+      "Sim! Você pode experimentar o LinkShowCase gratuitamente por 15 dias. Durante esse período, terá acesso a todas as funcionalidades para decidir se deseja continuar com a assinatura.",
   },
   {
     title: "Preciso ter conhecimento técnico para usar o LinkShowCase?",
