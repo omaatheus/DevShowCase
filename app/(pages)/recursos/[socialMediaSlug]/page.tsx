@@ -1,3 +1,6 @@
+import ProjectCard from "@/app/components/commons/projectCard";
+import { TotalVisits } from "@/app/components/commons/totalVisits";
+import UserCard from "@/app/components/commons/user-card/userCard";
 import FAQ from "@/app/components/landing-page/faq";
 import Header from "@/app/components/landing-page/header";
 import Hero from "@/app/components/landing-page/hero";
@@ -23,7 +26,19 @@ export default async function LinkInBio({
   return (
     <div className="max-w-7xl mx-auto">
       <Header />
-      <Hero texts={texts} />
+      <Hero 
+      texts={texts}
+            userCard={<UserCard />}
+            totalVisits={<TotalVisits totalVisits={3470} />}
+            projectCards={
+              <ProjectCard
+                isOwner={false}
+                name="Avanço tecnológico"
+                description="Descrição detalhada"
+                img="/project1.png"
+              />
+            }
+            />
       <VideoExplanation />
       <Pricing />
       <FAQ />
