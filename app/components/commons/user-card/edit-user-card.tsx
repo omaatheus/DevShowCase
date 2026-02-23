@@ -20,6 +20,7 @@ import { saveProfile } from "@/app/actions/save-profile";
 import addCustomLinks from "@/app/actions/add-custom-links";
 import Modal from "../../landing-page/ui/modal";
 import Button from "../../landing-page/ui/button";
+import TextArea from "../../landing-page/ui/textarea";
 
 export default function EditUserCard({
   profileData,
@@ -267,29 +268,17 @@ export default function EditUserCard({
                       >
                         Bio
                       </label>
-                      <span
-                        className={`text-xs font-medium transition-colors ${
-                          currentBioLength === 0
-                            ? "text-gray-400"
-                            : isBioLimitReached
-                              ? "text-red-500"
-                              : "text-violet-600"
-                        }`}
-                      >
-                        {currentBioLength}/{maxBioLength}
-                      </span>
                     </div>
-                    <textarea
-                      id="your-description"
-                      placeholder="Uma breve descrição sobre o que você faz..."
-                      value={yourDescription}
-                      onChange={handleBioChange}
-                      className={`w-full h-40 p-4 bg-gray-50 rounded-2xl border border-transparent outline-none resize-none transition-all ${
-                        isBioLimitReached
-                          ? "focus:border-red-300 focus:shadow-[0_0_0_4px_rgba(239,68,68,0.1)]"
-                          : "focus:border-violet-500 focus:bg-white focus:shadow-[0_0_0_4px_rgba(139,92,246,0.1)]"
-                      }`}
-                    />
+                    
+                    <TextArea
+                                                    id="project-description"
+                                                    placeholder="Breve descrição..."
+                                                    className="h-28 resize-none"
+                                                    value={yourDescription}
+                                                    onChange={handleBioChange}
+                                                    maxLength={150} 
+                                                    // error={errors.projectDescription} // Caso queira validar a descrição no futuro
+                                                />
                   </div>
                 </motion.div>
               )}

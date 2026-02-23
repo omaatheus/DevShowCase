@@ -244,6 +244,8 @@ export default function NewProject({ profileId }: { profileId: string }) {
                                 className="h-28 resize-none"
                                 value={projectDescription}
                                 onChange={(e) => setProjectDescription(e.target.value)}
+                                maxLength={150} 
+                                // error={errors.projectDescription} // Caso queira validar a descrição no futuro
                             />
                         </div>
                     </div>
