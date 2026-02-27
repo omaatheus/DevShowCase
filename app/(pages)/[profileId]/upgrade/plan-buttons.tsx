@@ -3,7 +3,7 @@
 import Button from "@/app/components/landing-page/ui/button";
 import { useStripe } from "@/app/hooks/useStripe";
 import { useParams } from "next/navigation";
-import { MONTHLY_PRICE, ANUALLY_PRICE } from "@/app/lib/config";
+import { MONTHLY_PRICE, ANNUALLY_PRICE, QUARTERLY_PRICE } from "@/app/lib/config";
 
 export default function PlanButtons() {
   const { profileId } = useParams();
@@ -29,7 +29,34 @@ export default function PlanButtons() {
           onClick={() =>
             createStripeCheckout({
               metadata: { profileId },
-              isSubscription: true,
+              typeSubscription: "monthly",
+            })
+          } 
+          variant="primary"
+          className="w-full"
+        >
+          Assinar
+        </Button>
+      </div>
+
+      {/* Plano Trimestral */}
+      <div className="w-full max-w-[304px] p-8 flex flex-col justify-between gap-7 rounded-2xl border border-gray-200 bg-white">
+        <div className="flex flex-col gap-7">
+          <div className="flex flex-col text-left">
+            <span className="text-black font-bold text-2xl">Trimestral</span>
+            <span className="text-content-body">Apenas</span>
+          </div>
+          <div className="flex items-baseline gap-1">
+            <span className="text-black font-bold text-[48px]">R${QUARTERLY_PRICE}</span>
+            <span className="text-content-headline text-xl">/trim</span>
+          </div>
+        </div>
+        
+        <Button 
+          onClick={() =>
+            createStripeCheckout({
+              metadata: { profileId },
+              typeSubscription: "quarterly",
             })
           } 
           variant="primary"
@@ -52,7 +79,7 @@ export default function PlanButtons() {
                 <span className="text-content-body">Apenas</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-black font-bold text-[48px]">R${ANUALLY_PRICE}</span>
+                <span className="text-black font-bold text-[48px]">R${ANNUALLY_PRICE}</span>
                 <span className="text-content-headline text-xl">/ano</span>
               </div>
             </div>
@@ -61,7 +88,7 @@ export default function PlanButtons() {
               onClick={() =>
                 createStripeCheckout({
                   metadata: { profileId },
-                  isSubscription: false,
+                  typeSubscription: "annually",
                 })
               } 
               variant="primary"

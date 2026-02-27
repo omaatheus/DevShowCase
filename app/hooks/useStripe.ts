@@ -17,10 +17,10 @@ export function useStripe() {
 
   async function createStripeCheckout({
     metadata,
-    isSubscription,
+    typeSubscription,
   }: {
     metadata: any;
-    isSubscription: boolean;
+    typeSubscription: string;
   }) {
     try {
       const response = await fetch("/api/stripe/create-checkout", {
@@ -28,7 +28,7 @@ export function useStripe() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ metadata, isSubscription }),
+        body: JSON.stringify({ metadata, typeSubscription }),
       });
 
       const data = await response.json();

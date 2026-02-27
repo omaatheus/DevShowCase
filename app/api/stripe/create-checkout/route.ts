@@ -5,9 +5,16 @@ import stripe from "@/app/lib/stripe";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-    const {metadata, isSubscription} = await req.json();
+    const {metadata, typeSubscription} = await req.json();
 
-    const price = isSubscription ? process.env.STRIPE_SUBSCRIPTION_PRICE_ID : process.env.STRIPE_PRICE_ID
+    if (typeSubscription === "monthly"){
+      var price = process.env.STRIPE_MONTHLY_SUBSCRIPTION_PRICE_ID
+    } if (typeSubscription === "quarterly"){
+      var price = process.env.STRIPE_QUARTERLY_SUBSCRIPTION_PRICE_ID
+    } if (typeSubscription === "annually"){
+      var price = process.env.STRIPE_ANNUALLY_SUBSCRIPTION_PRICE_ID
+    }
+    
 
     const userSession = await auth();
 
@@ -50,8 +57,8 @@ export async function POST(req: Request) {
             price: price,
             quantity: 1,
         }],
-        payment_method_types: isSubscription ? ["card"] : ["card"],
-        mode: isSubscription ? "subscription" : "payment",
+        payment_method_types: typeSubscription ? ["card"] : ["card"],
+        mode: "subscription",
         success_url: `${req.headers.get("origin")}/${metadata.profileId}`,
         cancel_url: `${req.headers.get("origin")}/${metadata.profileId}/upgrade`,
         client_reference_id: userId,
@@ -62,7 +69,7 @@ export async function POST(req: Request) {
     trackServerEvent("checkout_created", {
       userId,
       price,
-      isSubscription
+      typeSubscription
     })
 
     return NextResponse.json({
