@@ -12,7 +12,7 @@ LinkShowCase é um micro-SaaS que permite a criação de páginas personalizadas
 ## 💰 Planos e Preços
 
 - **Mensal:** R$ 9,90/mês  
-- **Vitalício:** R$ 59,90 (pagamento único)
+- **Anual:** R$ 99,90/ano
 
 ## ⚡ Tecnologias Utilizadas
 

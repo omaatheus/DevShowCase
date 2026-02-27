@@ -39,7 +39,7 @@ export default function PlanButtons() {
         </Button>
       </div>
 
-      {/* Plano Vitalício */}
+      {/* Plano Anual */}
       <div className="flex flex-col w-full max-w-[304px]">
         <div className="flex justify-center items-center rounded-t-2xl py-2 bg-[linear-gradient(90deg,#5000b9_0%,#7e038a_100%)]">
           <span className="uppercase text-white font-bold text-sm tracking-wider">Recomendado</span>
@@ -48,11 +48,12 @@ export default function PlanButtons() {
           <div className="w-full h-full bg-background-secondary p-8 flex flex-col justify-between gap-7 rounded-b-[14px]">
             <div className="flex flex-col gap-7">
               <div className="flex flex-col text-left">
-                <span className="text-black font-bold text-2xl">Vitalício</span>
-                <span className="text-content-body">Pagamento único</span>
+                <span className="text-black font-bold text-2xl">Anual</span>
+                <span className="text-content-body">Apenas</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-black font-bold text-[48px]">R${ANUALLY_PRICE}</span>
+                <span className="text-content-headline text-xl">/ano</span>
               </div>
             </div>
             
