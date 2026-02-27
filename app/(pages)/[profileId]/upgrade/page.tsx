@@ -1,13 +1,33 @@
 import Header from "@/app/components/landing-page/header";
 import PlanButtons from "./plan-buttons";
 import { Metadata } from "next";
+import { getProfileData } from "@/app/server/get-profile-data";
+import { auth } from "@/app/lib/auth";
+import { notFound, redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "LinkShowCase - Upgrade",
   description: "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."
 }
 
-export default async function UpgradePage() {
+export default async function UpgradePage({
+  params,
+}: {
+  params: Promise<{ profileId: string }>;
+}) {
+  const { profileId } = await params;
+  
+  const session = await auth();
+  const profileData = await getProfileData(profileId);
+
+  if (!profileData) return notFound();
+
+  const isOwner = profileData.userId === session?.user?.id;
+
+  if (!isOwner) {
+    redirect(`/${profileId}`);
+  }
+
   return (
     <>
       <Header />

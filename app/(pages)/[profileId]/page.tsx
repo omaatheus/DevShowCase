@@ -13,6 +13,7 @@ import { getDownloadURLFromPath } from "@/app/lib/firebase";
 import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 import { Metadata } from "next";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { enforceSubscription } from "@/app/lib/auth-checks";
 
 export const metadata: Metadata = {
   title: "LinkShowCase - Perfil",
@@ -35,10 +36,12 @@ export default async function ProfilePage({
   const session = await auth();
   const isOwner = profileData.userId === session?.user?.id;
 
-  if (!isOwner) {
+  if (isOwner) {
+    await enforceSubscription(profileId);
+  } else {
     await increaseProfileVisits(profileId);
   }
-
+  
   const projectsWithImages = await Promise.all(
     projects.map(async (project) => {
       const imageUrl = (await getDownloadURLFromPath(project.imagePath)) || "";
