@@ -57,6 +57,10 @@ export const compressImage = (file: File): Promise<File> => {
 };
 
 export function formatUrl(url: string) {
+  if (url === undefined || url === null || url === ""){
+    return ""
+  }
+
   const formattedUrl = url.startsWith("http") ? url : `https://${url}`;
   return formattedUrl;
 }
