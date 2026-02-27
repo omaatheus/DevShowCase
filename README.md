@@ -1,13 +1,13 @@
-# LinkShowCase
+# Linkslie
 
-LinkShowCase é um micro-SaaS que permite a criação de páginas personalizadas para centralizar e compartilhar links importantes. Similar ao Linktree, nosso serviço permite que influenciadores, empresas e criadores de conteúdo organizem seus links de forma profissional e acessível em uma única página.
+Linkslie é um micro-SaaS que permite a criação de páginas personalizadas para centralizar e compartilhar links importantes. Similar ao Linktree, nosso serviço permite que influenciadores, empresas e criadores de conteúdo organizem seus links de forma profissional e acessível em uma única página.
 
 ## ✨ Recursos Principais
 
 - 📌 **Criação de páginas personalizadas com links ilimitados**
 - 🔗 **Integração com redes sociais e botões de contato**
 - 📊 **Estatísticas de cliques para monitorar o desempenho dos links**
-- 🌐 **URLs exclusivas e personalizadas** (ex: `linkshowcase.com/seunome`)
+- 🌐 **URLs exclusivas e personalizadas** (ex: `Linkslie.com/seunome`)
 
 ## 💰 Planos e Preços
 
@@ -27,7 +27,7 @@ Clone o repositório:
 
 ```sh
 git clone https://github.com/omaatheus/DevShowCase
-cd linkshowcase
+cd Linkslie
 ```
 
 Instale as dependências:

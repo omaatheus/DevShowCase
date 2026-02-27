@@ -5,17 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqItems = [
   {
-    title: "O que é o LinkShowCase e como ele funciona?",
+    title: "O que é o Linkslie e como ele funciona?",
     description:
-      "O LinkShowCase é uma plataforma que permite criar portfólios profissionais e páginas de links de maneira rápida e simples. Com templates personalizáveis e uma interface intuitiva, você pode organizar e exibir seu trabalho de forma eficiente.",
+      "O Linkslie é uma plataforma que permite criar portfólios profissionais e páginas de links de maneira rápida e simples. Com templates personalizáveis e uma interface intuitiva, você pode organizar e exibir seu trabalho de forma eficiente.",
   },
   {
     title: "A plataforma oferece algum teste gratuito?",
     description:
-      "Sim! Você pode experimentar o LinkShowCase gratuitamente por 15 dias. Durante esse período, terá acesso a todas as funcionalidades para decidir se deseja continuar com a assinatura.",
+      "Sim! Você pode experimentar o Linkslie gratuitamente por 15 dias. Durante esse período, terá acesso a todas as funcionalidades para decidir se deseja continuar com a assinatura.",
   },
   {
-    title: "Preciso ter conhecimento técnico para usar o LinkShowCase?",
+    title: "Preciso ter conhecimento técnico para usar o Linkslie?",
     description:
       "Não, nenhum conhecimento técnico é necessário! A plataforma foi projetada para ser fácil de usar, permitindo que qualquer pessoa crie e personalize seu portfólio e links com facilidade.",
   },
@@ -45,7 +45,7 @@ export default function FAQ() {
           Dúvidas <span className="text-[#4200cd]">frequentes</span>
         </h2>
         <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto">
-          Tudo o que você precisa saber sobre o LinkShowCase. Se tiver outras dúvidas, entre em contato com nosso suporte.
+          Tudo o que você precisa saber sobre o Linkslie. Se tiver outras dúvidas, entre em contato com nosso suporte.
         </p>
       </div>
 

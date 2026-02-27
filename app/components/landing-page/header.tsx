@@ -19,11 +19,11 @@ export default async function Header() {
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img 
             src="/logo.svg" 
-            alt="LinkShowCase Logo" 
+            alt="Linkslie Logo" 
             className="w-8 h-8 sm:w-10 sm:h-10 object-contain" 
           />
           <h3 className="text-black text-xl sm:text-2xl font-bold tracking-tight">
-            LinkShowCase
+            Linkslie
           </h3>
         </Link>
 

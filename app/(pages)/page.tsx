@@ -13,10 +13,10 @@ import { TotalVisits } from "../components/commons/totalVisits";
 import ProjectCard from "../components/commons/projectCard";
 
 export const metadata: Metadata = getSEOTags({
-  appName: "LinkShowCase",
+  appName: "Linkslie",
   appDescription:
-    "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link.",
-  keywords: ["LinkShowCase", "projetos", "redes sociais", "link"],
+    "Linkslie - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link.",
+  keywords: ["Linkslie", "projetos", "redes sociais", "link"],
   appDomain: "https://dev-show-case.vercel.app/",
   canonicalUrlRelative: "/",
 });

@@ -16,9 +16,9 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { enforceSubscription } from "@/app/lib/auth-checks";
 
 export const metadata: Metadata = {
-  title: "LinkShowCase - Perfil",
+  title: "Linkslie - Perfil",
   description:
-    "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link.",
+    "Linkslie - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link.",
 };
 
 export default async function ProfilePage({

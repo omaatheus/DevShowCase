@@ -10,7 +10,7 @@ export default function CreateNow() {
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-2 w-full mt-[10vh] px-4 mb-4 md:mb-0">
-      <span className="text-black text-xl">linkshowcase.com/</span>
+      <span className="text-black text-xl">Linkslie.com/</span>
       <TextInput
         placeholder="Seu link"
         value={link}

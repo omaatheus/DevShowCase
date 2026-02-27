@@ -5,8 +5,8 @@ import { trackServerEvent } from "@/app/lib/mixpanel";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LinkShowCase - Criar",
-  description: "LinkShowCase - Crie seu link compartilhável com o público."
+  title: "Linkslie - Criar",
+  description: "Linkslie - Crie seu link compartilhável com o público."
 }
 
 

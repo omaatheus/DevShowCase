@@ -6,8 +6,8 @@ import { auth } from "@/app/lib/auth";
 import { notFound, redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "LinkShowCase - Upgrade",
-  description: "LinkShowCase - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."
+  title: "Linkslie - Upgrade",
+  description: "Linkslie - Ajude seus seguidores a descobrir tudo o que você faz, com um simples link."
 }
 
 export default async function UpgradePage({
